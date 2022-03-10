@@ -45,10 +45,10 @@ bool parseFile(Map *map, FILE *file) {
 	uint width, height;
 	fread(&width, sizeof(uint), 1, file);
 	fread(&height, sizeof(uint), 1, file);
-	if (width != map->_width || map->_height != HEIGHT) {
+	if (width != map->_width || height != map->_height) {
 		return false;
 	}
-	fread(map->_map, sizeof(uchar), WIDTH * HEIGHT, file);
+	fread(map->_map, sizeof(uchar), map->_width * map->_height, file);
 	return true;
 }
 

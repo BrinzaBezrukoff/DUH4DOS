@@ -15,13 +15,18 @@ int main() {
 	FILE* file;
 	uint pressed;
 
-	file = fopen("LVLS/LEVEL1.DAT", "rb");
+	file = fopen("LVLS/2.DAT", "rb");
 	if (file == NULL) {
 		fprintf(stderr, "Level file not found!\n");
+        getch();
 		exit(1);
 	}
-	initMap(&map, WIDTH, HEIGHT);
-    parseFile(&map, file);
+	initMap(&map, DEF_WIDTH - 1, DEF_HEIGHT - 1);
+    if (!parseFile(&map, file)) {
+        fprintf(stderr, "Level file not loaded!\n");
+        getch();
+        exit(1);
+    }
 	fclose(file);
 
 	initHero(&hero, 2u, 2u,&map);

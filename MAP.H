@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include "TOOLS.H"
 
-#define WIDTH 80
-#define HEIGHT 25
+#define DEF_WIDTH 80
+#define DEF_HEIGHT 25
 
 const uchar LINE_HOR = 196;
 const uchar LINE_VER = 179;
@@ -16,7 +16,7 @@ const uchar CORN_BR = 217;
 const uchar EMPTY = 0;
 
 typedef struct Map {
-	uchar _map[WIDTH][HEIGHT];
+	uchar _map[DEF_WIDTH][DEF_HEIGHT];
     uint _width;
     uint _height;
 } Map;
