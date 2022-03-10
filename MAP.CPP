@@ -19,26 +19,25 @@ bool isValid(Map *map, uint x, uint y) {
 }
 
 uchar getSym(Map *map, uint x, uint y) {
-	return map->_map[y - 1][x - 1];
+	return map->_map[(y - 1) * map->_width + x - 1];
 }
 
 void setSym(Map *map, uint x, uint y, uchar sym) {
-    map->_map[y - 1][x - 1] = sym;
+    map->_map[(y - 1) * map->_width + x - 1] = sym;
 }
 
 void initMap(Map *map, uint width, uint height) {
-    int i, j;
     map->_width = width;
     map->_height = height;
-    for (i = 0; i < map->_height; i++) {
-        for (j = 0; j < map->_width; j++) {
-            map->_map[i][j] = 0;
-        }
+    map->_map = (uchar*) calloc(map->_width * map->_height, sizeof(uchar));
+    if (map->_map == NULL) {
+        fprintf(stderr, "Can't allocate memory for map!\n");
+        exit(1);
     }
 }
 
 void freeMap(Map *map) {
-
+    free(map->_map);
 }
 
 bool parseFile(Map *map, FILE *file) {

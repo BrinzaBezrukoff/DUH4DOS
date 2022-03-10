@@ -16,7 +16,7 @@ const uchar CORN_BR = 217;
 const uchar EMPTY = 0;
 
 typedef struct Map {
-	uchar _map[DEF_WIDTH][DEF_HEIGHT];
+	uchar *_map;
     uint _width;
     uint _height;
 } Map;

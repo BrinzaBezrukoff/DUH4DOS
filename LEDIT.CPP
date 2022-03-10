@@ -69,6 +69,8 @@ int main() {
     saveFile(&map, file);
     fclose(file);
 
+    freeMap(&map);
+
     printf("Done!\n");
 
     return 0;
