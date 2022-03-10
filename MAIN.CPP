@@ -20,7 +20,8 @@ int main() {
 		fprintf(stderr, "Level file not foun!\n");
 		exit(1);
 	}
-	initMap(&map, file);
+	initMap(&map, WIDTH, HEIGHT);
+    parseFile(&map, file);
 	fclose(file);
 
 	initHero(&hero, 2u, 2u,&map);
