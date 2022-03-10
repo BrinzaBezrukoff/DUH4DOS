@@ -1,0 +1,10 @@
+.idea
+BIN
+bin
+*.EXE
+*.BAK
+*.swp
+*.OBJ
+*.SWP
+*.DSK
+
