@@ -17,7 +17,7 @@ int main() {
 
 	file = fopen("LVLS/LEVEL1.DAT", "rb");
 	if (file == NULL) {
-		fprintf(stderr, "Level file not foun!\n");
+		fprintf(stderr, "Level file not found!\n");
 		exit(1);
 	}
 	initMap(&map, WIDTH, HEIGHT);

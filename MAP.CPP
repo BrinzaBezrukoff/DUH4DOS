@@ -6,8 +6,8 @@
 
 void redrawMap(Map *map) {
 	int x, y;
-	for (y = 1; y <= HEIGHT; y++) {
-		for (x = 1; x <= WIDTH; x++) {
+	for (y = 1; y <= map->_height; y++) {
+		for (x = 1; x <= map->_width; x++) {
 			gotoxy(x, y);
 			putchar(getSym(map, x, y));
 		}
@@ -20,6 +20,10 @@ bool isValid(Map *map, uint x, uint y) {
 
 uchar getSym(Map *map, uint x, uint y) {
 	return map->_map[y - 1][x - 1];
+}
+
+void setSym(Map *map, uint x, uint y, uchar sym) {
+    map->_map[y - 1][x - 1] = sym;
 }
 
 void initMap(Map *map, uint width, uint height) {
