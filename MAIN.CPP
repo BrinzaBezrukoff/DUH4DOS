@@ -15,7 +15,7 @@ int main() {
 	FILE* file;
 	uint pressed;
 
-	file = fopen("level1.dat", "rb");
+	file = fopen("LVLS/LEVEL1.DAT", "rb");
 	if (file == NULL) {
 		fprintf(stderr, "Level file not foun!\n");
 		exit(1);
@@ -23,17 +23,38 @@ int main() {
 	initMap(&map, file);
 	fclose(file);
 
-	initHero(&hero, 1u, 1u, &map);
+	initHero(&hero, 2u, 2u,&map);
 
 	gettextinfo(&ti);
 	clrscr();
 	_setcursortype(_NOCURSOR);
 
+    redrawMap(&map);
+
 	while (running) {
-		redrawMap(&map);
-		redrawHero(&hero);
-		getch();
-		clrscr();
+        if (kbhit()) {
+            pressed = getch();
+            switch (pressed) {
+                case 'w':
+                    moveHero(&hero, 0, -1);
+                    break;
+                case 'a':
+                    moveHero(&hero, -1, 0);
+                    break;
+                case 's':
+                    moveHero(&hero, 0, 1);
+                    break;
+                case 'd':
+                    moveHero(&hero, 1, 0);
+                    break;
+                case 'q':
+                    running = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        redrawHero(&hero);
 	}
 
 	clrscr();

@@ -24,9 +24,11 @@ bool moveHero(Hero *hero, uint dx, uint dy) {
 }
 
 bool tpHero(Hero *hero, uint x, uint y) {
-	if (isValid(hero->map, x, y)) {
+	if (!isValid(hero->map, x, y)) {
 		return false;
 	}
+    hero->_oldx = hero->_x;
+    hero->_oldy = hero->_y;
 	hero->_x = x;
 	hero->_y = y;
 	return true;

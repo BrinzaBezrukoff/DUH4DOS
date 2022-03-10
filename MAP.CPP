@@ -1,24 +1,21 @@
-#include "MAP.H"
-
 #include <conio.h>
 #include <stdlib.h>
+
+#include "MAP.H"
 
 
 void redrawMap(Map *map) {
 	int x, y;
-	uchar ch;
-	for (y = map->_height; y >= 1; y--) {
-		for (x = 1; x <= map->_width; x++) {
-			gotoxy(x, 1);
+	for (y = 1; y <= HEIGHT; y++) {
+		for (x = 1; x <= WIDTH; x++) {
+			gotoxy(x, y);
 			putchar(getSym(map, x, y));
 		}
-		gotoxy(1, 1);
-		insline();
 	}
 }
 
 bool isValid(Map *map, uint x, uint y) {
-	return (x >= 1 && x <= map->_width) && (y >= 1 && y <= map->_height);
+	return (x >= 1 && x <= WIDTH) && (y >= 1 && y <= HEIGHT);
 }
 
 uchar getSym(Map *map, uint x, uint y) {
