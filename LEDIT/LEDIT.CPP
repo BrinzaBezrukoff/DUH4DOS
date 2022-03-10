@@ -1,8 +1,8 @@
 #include <conio.h>
 #include <stdio.h>
 
-#include "TOOLS.H"
-#include "MAP.H"
+#include "DUH/TOOLS.H"
+#include "DUH/MAP.H"
 
 
 int main() {
