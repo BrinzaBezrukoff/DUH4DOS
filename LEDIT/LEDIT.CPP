@@ -3,6 +3,7 @@
 
 #include "DUH/TOOLS.H"
 #include "DUH/MAP.H"
+#include "DUH/BLOCK.H"
 
 
 int main() {
@@ -52,13 +53,13 @@ int main() {
             case 'd': x++; break;
             case 'q': running = false; break;
             case '1':
-                setSym(&map, x, y, LINE_HOR);
+                setId(&map, x, y, 1);
                 break;
             case '2':
-                setSym(&map, x, y, LINE_VER);
+                setId(&map, x, y, 2);
                 break;
             case '0':
-                setSym(&map, x, y, EMPTY);
+                setId(&map, x, y, 0);
                 break;
         }
     }

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "DUH/MAP.H"
+#include "DUH/BLOCK.H"
 
 
 void redrawMap(Map *map) {
@@ -9,7 +10,7 @@ void redrawMap(Map *map) {
 	for (y = 1; y <= map->_height; y++) {
 		for (x = 1; x <= map->_width; x++) {
 			gotoxy(x, y);
-			putchar(getSym(map, x, y));
+			putchar(getSymbol(getId(map, x, y)));
 		}
 	}
 }
@@ -19,14 +20,14 @@ bool isValid(Map *map, uint x, uint y) {
 }
 
 bool isFree(Map *map, uint x, uint y) {
-    return (bool) getSym(map, x, y) == 0;
+    return (bool) getId(map, x, y) == 0;
 }
 
-uchar getSym(Map *map, uint x, uint y) {
+uchar getId(Map *map, uint x, uint y) {
 	return map->_map[(y - 1) * map->_width + x - 1];
 }
 
-void setSym(Map *map, uint x, uint y, uchar sym) {
+void setId(Map *map, uint x, uint y, uchar sym) {
     map->_map[(y - 1) * map->_width + x - 1] = sym;
 }
 
