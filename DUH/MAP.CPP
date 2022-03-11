@@ -18,6 +18,10 @@ bool isValid(Map *map, uint x, uint y) {
 	return (x >= 1 && x <= map->_width) && (y >= 1 && y <= map->_height);
 }
 
+bool isFree(Map *map, uint x, uint y) {
+    return (bool) getSym(map, x, y) == 0;
+}
+
 uchar getSym(Map *map, uint x, uint y) {
 	return map->_map[(y - 1) * map->_width + x - 1];
 }

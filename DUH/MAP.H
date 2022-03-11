@@ -23,6 +23,7 @@ typedef struct Map {
 
 void redrawMap(Map *map);
 bool isValid(Map *map, uint x, uint y);
+bool isFree(Map *map, uint x, uint y);
 uchar getSym(Map *map, uint x, uint y);
 void setSym(Map *map, uint x, uint y, uchar sym);
 void initMap(Map *map, uint width, uint height);

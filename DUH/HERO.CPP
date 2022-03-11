@@ -27,6 +27,9 @@ bool tpHero(Hero *hero, uint x, uint y) {
 	if (!isValid(hero->map, x, y)) {
 		return false;
 	}
+    if (!isFree(hero->map, x, y)) {
+        return false;
+    }
     hero->_oldx = hero->_x;
     hero->_oldy = hero->_y;
 	hero->_x = x;
