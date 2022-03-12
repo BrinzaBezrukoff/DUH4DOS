@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
 
 #include "DUH/TOOLS.H"
 #include "DUH/HERO.H"
 #include "DUH/MAP.H"
+
+
+#define DEF_LVL "LVLS/1.DAT"
 
 
 int main() {
@@ -14,8 +18,18 @@ int main() {
 	bool running;
 	FILE* file;
 	uint pressed;
+    char filename[64] = "";
+    size_t len;
 
-	file = fopen("LVLS/2.DAT", "rb");
+    printf("Level file [empty for default]: ");
+    fgets(filename, 64, stdin);
+    if ((len = strlen(filename)) < 2) {
+        strcpy(filename, DEF_LVL);
+    }
+    else {
+        filename[len - 1] = '\0';
+    }
+	file = fopen(filename, "rb");
 	if (file == NULL) {
 		fprintf(stderr, "Level file not found!\n");
         getch();
@@ -29,7 +43,7 @@ int main() {
     }
 	fclose(file);
 
-	initHero(&hero, 2u, 2u,&map);
+	initHero(&hero, 2u, 2u, &map);
 
 	gettextinfo(&ti);
 	clrscr();
@@ -71,6 +85,8 @@ int main() {
 	getch();
 
 	freeMap(&map);
+
+    _setcursortype(_NORMALCURSOR);
 
 	return 0;
 }

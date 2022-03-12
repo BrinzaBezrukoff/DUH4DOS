@@ -7,7 +7,7 @@
 
 
 int main() {
-    char filename[64];
+    char filename[64] = "";
     int isNew;
     bool running;
     Map map;
