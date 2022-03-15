@@ -1,5 +1,5 @@
-#ifndef DUH4DOS_BLOCK_H
-#define DUH4DOS_BLOCK_H
+#ifndef __DUH_BLOCK_H
+#define __DUH_BLOCK_H
 
 #include <conio.h>
 
