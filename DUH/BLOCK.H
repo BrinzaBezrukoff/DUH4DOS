@@ -8,6 +8,8 @@ typedef struct Block {
     uchar symbol;
     bool solid;
     COLORS color;
+    COLORS background;
+    bool blink;
 } Block;
 
 extern Block _blocks[256];

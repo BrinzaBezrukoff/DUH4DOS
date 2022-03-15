@@ -8,7 +8,7 @@
 
 void redrawPos(Map *map, uint x, uint y) {
     Block *block = getBlock(getId(map, x, y));
-    setcolors(block->color, BLACK, false);
+    setcolors(block->color, block->background, block->blink);
     putonxy(block->symbol, x, y);
     resetcolors();
 }
