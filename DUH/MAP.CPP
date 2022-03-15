@@ -1,11 +1,14 @@
 #include <stdlib.h>
 
+#include "DUH/TOOLS.H"
+
 #include "DUH/MAP.H"
 #include "DUH/BLOCK.H"
 
 
 void redrawPos(Map *map, uint x, uint y) {
-    putonxy(getSymbol(getId(map, x, y)), x, y);
+    Block *block = getBlock(getId(map, x, y));
+    cputonxy(block->symbol, x, y, block->color, BLACK, false);
 }
 
 void redrawMap(Map *map) {

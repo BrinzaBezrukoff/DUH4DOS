@@ -19,6 +19,10 @@ uchar getSymbol(uchar id) {
     return _blocks[id].symbol;
 }
 
+Block *getBlock(uchar id) {
+    return &_blocks[id];
+}
+
 Block initBlock(uchar id, uchar symbol, bool solid) {
     Block block;
     block.ID = id;

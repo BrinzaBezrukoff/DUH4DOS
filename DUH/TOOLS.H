@@ -1,6 +1,8 @@
 #ifndef __DUH_TOOLS_H
 #define __DUH_TOOLS_H
 
+#include <conio.h>
+
 // Uint type
 typedef unsigned int uint;
 
@@ -21,7 +23,9 @@ const uchar CORN_BL = 192;
 const uchar CORN_BR = 217;
 const uchar EMPTY = 0;
 
-// helpful functions
+// putchar on (x, y) with textattrs
 int putonxy(int c, uint x, uint y);
+// putchar on (x, y) with passed textattrs
+int cputonxy(int c, uint x, uint y, COLORS fg, COLORS bg, bool blink);
 
 #endif

@@ -1,3 +1,5 @@
+#include "DUH/TOOLS.H"
+
 #include "DUH/HERO.H"
 #include "DUH/MAP.h"
 
@@ -13,7 +15,7 @@ void initHero(Hero *hero, uint x, uint y, Map* map) {
 
 void redrawHero(Hero *hero) {
     redrawPos(hero->map, hero->_oldx, hero->_oldy);
-	putonxy(HEROSYM, hero->_x, hero->_y);
+	cputonxy(HEROSYM, hero->_x, hero->_y, WHITE, BLACK, false);
 }
 
 bool moveHero(Hero *hero, uint dx, uint dy) {
