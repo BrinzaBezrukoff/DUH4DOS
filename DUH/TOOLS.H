@@ -21,4 +21,7 @@ const uchar CORN_BL = 192;
 const uchar CORN_BR = 217;
 const uchar EMPTY = 0;
 
+// helpful functions
+int putonxy(int c, uint x, uint y);
+
 #endif

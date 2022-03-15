@@ -1,4 +1,3 @@
-#include <conio.h>
 #include <stdlib.h>
 
 #include "DUH/MAP.H"
@@ -6,8 +5,7 @@
 
 
 void redrawPos(Map *map, uint x, uint y) {
-    gotoxy(x, y);
-    putchar(getSymbol(getId(map, x, y)));
+    putonxy(getSymbol(getId(map, x, y)), x, y);
 }
 
 void redrawMap(Map *map) {
