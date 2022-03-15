@@ -15,7 +15,9 @@ void initHero(Hero *hero, uint x, uint y, Map* map) {
 
 void redrawHero(Hero *hero) {
     redrawPos(hero->map, hero->_oldx, hero->_oldy);
-	cputonxy(HEROSYM, hero->_x, hero->_y, WHITE, BLACK, false);
+    setcolors(WHITE, BLACK, false);
+	putonxy(HEROSYM, hero->_x, hero->_y);
+    resetcolors();
 }
 
 bool moveHero(Hero *hero, uint dx, uint dy) {

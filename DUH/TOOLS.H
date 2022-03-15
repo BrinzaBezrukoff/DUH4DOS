@@ -25,7 +25,9 @@ const uchar EMPTY = 0;
 
 // putchar on (x, y) with textattrs
 int putonxy(int c, uint x, uint y);
-// putchar on (x, y) with passed textattrs
-int cputonxy(int c, uint x, uint y, COLORS fg, COLORS bg, bool blink);
+// set color attrs
+void setcolors(COLORS fg, COLORS bg, bool blink);
+// reset color attrs to normal attrs for system
+void resetcolors();
 
 #endif
