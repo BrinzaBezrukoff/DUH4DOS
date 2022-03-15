@@ -47,12 +47,18 @@ void freeMap(Map *map) {
 
 bool parseFile(Map *map, FILE *file) {
 	uint width, height;
-	fread(&width, sizeof(uint), 1, file);
-	fread(&height, sizeof(uint), 1, file);
-	if (width != map->_width || height != map->_height) {
+    size_t len1, len2;
+    uint arrLen;
+    len1 = fread(&width, sizeof(uint), 1, file);
+    len2 = fread(&height, sizeof(uint), 1, file);
+	if (!len1 || !len2 || width != map->_width || height != map->_height) {
 		return false;
 	}
-	fread(map->_map, sizeof(uchar), map->_width * map->_height, file);
+    arrLen = map->_width * map->_height;
+    len1 = fread(map->_map, sizeof(uchar), arrLen, file);
+    if (arrLen != len1) {
+        return false;
+    }
 	return true;
 }
 
