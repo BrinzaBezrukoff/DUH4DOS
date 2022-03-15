@@ -6,16 +6,16 @@
 #include "DUH/TOOLS.H"
 
 typedef struct Block {
-    uint ID;
+    uchar ID;
     uchar symbol;
     bool solid;
     COLORS color;
 } Block;
 
-extern Block _blocks[255];
+extern Block _blocks[256];
 
-Block initBlock(uint id, uchar symbol, bool solid);
-bool isSolid(uint id);
-uchar getSymbol(uint id);
+Block initBlock(uchar id, uchar symbol, bool solid);
+bool isSolid(uchar id);
+uchar getSymbol(uchar id);
 
 #endif

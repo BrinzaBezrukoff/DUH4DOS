@@ -20,15 +20,15 @@ bool isValid(Map *map, uint x, uint y) {
 }
 
 bool isFree(Map *map, uint x, uint y) {
-    return (bool) getId(map, x, y) == 0;
+    return !isSolid(getId(map, x, y));
 }
 
 uchar getId(Map *map, uint x, uint y) {
 	return map->_map[(y - 1) * map->_width + x - 1];
 }
 
-void setId(Map *map, uint x, uint y, uchar sym) {
-    map->_map[(y - 1) * map->_width + x - 1] = sym;
+void setId(Map *map, uint x, uint y, uchar id) {
+    map->_map[(y - 1) * map->_width + x - 1] = id;
 }
 
 void initMap(Map *map, uint width, uint height) {
