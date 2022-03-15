@@ -1,5 +1,6 @@
 #include <conio.h>
 #include <stdio.h>
+#include <ctype.h>
 
 #include "DUH/TOOLS.H"
 #include "DUH/MAP.H"
@@ -52,14 +53,10 @@ int main() {
             case 's': y++; break;
             case 'd': x++; break;
             case 'q': running = false; break;
-            case '1':
-                setId(&map, x, y, 1);
-                break;
-            case '2':
-                setId(&map, x, y, 2);
-                break;
-            case '0':
-                setId(&map, x, y, 0);
+            default:
+                if (isdigit(pressed)) {
+                    setId(&map, x, y, pressed - '0');
+                }
                 break;
         }
     }

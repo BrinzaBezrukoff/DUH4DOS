@@ -4,7 +4,11 @@
 Block _blocks[255] = {
         {0, 0, false, WHITE},
         {1, 196, true, WHITE},
-        {2, 179, true, WHITE}
+        {2, 179, true, WHITE},
+        {3, 218, true, WHITE},
+        {4, 191, true, WHITE},
+        {5, 192, true, WHITE},
+        {6, 217, true, WHITE},
 };
 
 bool isSolid(uint id) {
