@@ -6,6 +6,7 @@
 #include "DUH/TOOLS.H"
 #include "DUH/HERO.H"
 #include "DUH/MAP.H"
+#include "DUH/HUD.H"
 
 
 #define DEF_LVL "LVLS/1.DAT"
@@ -50,6 +51,8 @@ int main() {
 	_setcursortype(_NOCURSOR);
 
     redrawMap(&map);
+    redrawHero(&hero);
+    redrawHUD(&hero, &map);
 
 	while (running) {
         if (kbhit()) {
@@ -73,8 +76,9 @@ int main() {
                 default:
                     break;
             }
+            redrawHero(&hero);
+            redrawHUD(&hero, &map);
         }
-        redrawHero(&hero);
 	}
 
 	clrscr();
