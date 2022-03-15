@@ -5,7 +5,10 @@ Block _blocks[256] = {
         {0, 0, false, WHITE},
         {1, 219, true, WHITE},
         {2, 0, false, WHITE},
-        {3, 177, false, GREEN}
+        {3, 127, false, GREEN},
+        {4, 3, false, RED},
+        {5, 21, false, CYAN},
+        {6, 7, false, YELLOW},
 };
 
 bool isSolid(uchar id) {

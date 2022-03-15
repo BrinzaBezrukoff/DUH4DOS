@@ -13,6 +13,7 @@ typedef struct Map {
     uint _height;
 } Map;
 
+void redrawPos(Map *map, uint x, uint y);
 void redrawMap(Map *map);
 bool isValid(Map *map, uint x, uint y);
 bool isFree(Map *map, uint x, uint y);

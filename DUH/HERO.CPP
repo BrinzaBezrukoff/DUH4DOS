@@ -1,6 +1,7 @@
 #include <conio.h>
 
 #include "DUH/HERO.H"
+#include "DUH/MAP.h"
 
 
 void initHero(Hero *hero, uint x, uint y, Map* map) {
@@ -13,8 +14,7 @@ void initHero(Hero *hero, uint x, uint y, Map* map) {
 }
 
 void redrawHero(Hero *hero) {
-	gotoxy(hero->_oldx, hero->_oldy);
-	putchar(0);
+    redrawPos(hero->map, hero->_oldx, hero->_oldy);
 	gotoxy(hero->_x, hero->_y);
 	putchar(HEROSYM);
 }

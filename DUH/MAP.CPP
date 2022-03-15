@@ -5,12 +5,16 @@
 #include "DUH/BLOCK.H"
 
 
+void redrawPos(Map *map, uint x, uint y) {
+    gotoxy(x, y);
+    putchar(getSymbol(getId(map, x, y)));
+}
+
 void redrawMap(Map *map) {
 	int x, y;
 	for (y = 1; y <= map->_height; y++) {
 		for (x = 1; x <= map->_width; x++) {
-			gotoxy(x, y);
-			putchar(getSymbol(getId(map, x, y)));
+            redrawPos(map, x, y);
 		}
 	}
 }
