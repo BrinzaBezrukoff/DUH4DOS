@@ -9,6 +9,8 @@
 #include "DUH/MAP.H"
 #include "DUH/HUD.H"
 
+#include "DUH/GUI.H"
+
 #define DEF_LVL "LVLS/1.DAT"
 #define FPS 30
 
@@ -53,9 +55,17 @@ int main() {
 	clrscr();
 	_setcursortype(_NOCURSOR);
 
+    DMessageBox mb;
+    initDMessageBox(&mb, 10, 5, "Hello",
+                    getDButton("cancel", -1),
+                    getDButton("yes", 1),
+                    getDButton("no", 0));
+    mb.bt_cancel.active = true;
+
     redrawMap(&map);
     redrawHero(&hero);
     redrawHUD(&hero, &map);
+    redrawDMessageBox(&mb);
 
 	while (gameState == CONTINUE) {
         if (kbhit()) {
@@ -82,6 +92,7 @@ int main() {
             gameState |= handlePos(&hero);
             redrawHero(&hero);
             redrawHUD(&hero, &map);
+            redrawDMessageBox(&mb);
         }
         delay(frameDelay);
 	}
