@@ -39,7 +39,7 @@ bool tpHero(Hero *hero, uint x, uint y) {
 	return true;
 }
 
-void handlePos(Hero *hero) {
+GameState handlePos(Hero *hero) {
     uchar id = getId(hero->map, hero->_x, hero->_y);
     switch (id) {
         case MED_KIT:
@@ -54,5 +54,8 @@ void handlePos(Hero *hero) {
             hero->_coins += 10;
             setId(hero->map, hero->_x, hero->_y, 0);
             break;
+        case TARGET_POINT:
+            return END_WIN;
     }
+    return CONTINUE;
 }

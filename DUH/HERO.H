@@ -22,7 +22,7 @@ void initHero(Hero *hero, uint x, uint y, Map* map);
 void redrawHero(Hero *hero);
 bool moveHero(Hero *hero, uint dx, uint dy);
 bool tpHero(Hero *hero, uint x, uint y);
-void handlePos(Hero *hero);
+GameState handlePos(Hero *hero);
 
 
 #endif

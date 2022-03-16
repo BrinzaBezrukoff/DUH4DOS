@@ -16,11 +16,11 @@ int main() {
 	Map map;
 	Hero hero;
 	struct text_info ti;
-	bool running;
 	FILE* file;
 	uint pressed;
     char filename[64] = "";
     size_t len;
+    GameState gameState = CONTINUE;
 
     printf("Level file [empty for default]: ");
     fgets(filename, 64, stdin);
@@ -54,7 +54,7 @@ int main() {
     redrawHero(&hero);
     redrawHUD(&hero, &map);
 
-	while (running) {
+	while (gameState == CONTINUE) {
         if (kbhit()) {
             pressed = getch();
             switch (pressed) {
@@ -71,22 +71,35 @@ int main() {
                     moveHero(&hero, 1, 0);
                     break;
                 case 'q':
-                    running = false;
+                    gameState |= END_QUIT;
                     break;
                 default:
                     break;
             }
-            handlePos(&hero);
+            gameState |= handlePos(&hero);
             redrawHero(&hero);
             redrawHUD(&hero, &map);
         }
 	}
 
     freeMap(&map);
-
-	clrscr();
+    clrscr();
     _setcursortype(_NORMALCURSOR);
-	printf("Bye %c\n", 1);
+
+    if (gameState & END_WIN) {
+        setcolors(GREEN, BLACK, true);
+        gotoxy(DEF_WIDTH / 2 - 8, 1);
+        cprintf("You won!\n");
+        setcolors(YELLOW, BLACK, false);
+        gotoxy(DEF_WIDTH / 2 - 8, 2);
+        cprintf("Coins: %d\n", hero._coins);
+    } else if (gameState & END_QUIT) {
+        setcolors(WHITE, BLACK, false);
+        gotoxy(DEF_WIDTH / 2 - 8, 1);
+        cprintf("Goodbye %c!\n", 1);
+    }
+
+    resetcolors();
 
 	return 0;
 }

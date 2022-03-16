@@ -21,4 +21,11 @@ void setcolors(COLORS fg, COLORS bg, bool blink);
 // reset color attrs to normal attrs for system
 void resetcolors();
 
+// Game states
+typedef enum GameState {
+    CONTINUE = 0,
+    END_WIN = 1,
+    END_QUIT = 2
+} GameState;
+
 #endif
