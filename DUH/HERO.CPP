@@ -1,14 +1,15 @@
 #include "DUH/TOOLS.H"
 
 #include "DUH/HERO.H"
-#include "DUH/MAP.h"
+#include "DUH/MAP.H"
+#include "DUH/BLOCK.H"
 
 
 void initHero(Hero *hero, uint x, uint y, Map* map) {
 	hero->_x = hero->_oldx = x;
 	hero->_y = hero->_oldy = y;
-	hero->_water = 100u;
-	hero->_hp = 100u;
+	hero->_water = 10u;
+	hero->_hp = 10u;
 	hero->_coins = 0u;
 	hero->map = map;
 }
@@ -36,4 +37,22 @@ bool tpHero(Hero *hero, uint x, uint y) {
 	hero->_x = x;
 	hero->_y = y;
 	return true;
+}
+
+void handlePos(Hero *hero) {
+    uchar id = getId(hero->map, hero->_x, hero->_y);
+    switch (id) {
+        case MED_KIT:
+            hero->_hp += 10;
+            setId(hero->map, hero->_x, hero->_y, 0);
+            break;
+        case WATER_JUG:
+            hero->_water += 10;
+            setId(hero->map, hero->_x, hero->_y, 0);
+            break;
+        case COIN:
+            hero->_coins += 10;
+            setId(hero->map, hero->_x, hero->_y, 0);
+            break;
+    }
 }

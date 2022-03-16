@@ -3,6 +3,17 @@
 
 #include "DUH/TOOLS.H"
 
+
+typedef enum BlockType {
+    EMPTY,
+    WALL,
+    ENTRY_POINT,
+    TARGET_POINT,
+    MED_KIT,
+    WATER_JUG,
+    COIN
+} BlockType;
+
 typedef struct Block {
     uchar ID;
     uchar symbol;

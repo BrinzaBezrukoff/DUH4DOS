@@ -76,6 +76,7 @@ int main() {
                 default:
                     break;
             }
+            handlePos(&hero);
             redrawHero(&hero);
             redrawHUD(&hero, &map);
         }

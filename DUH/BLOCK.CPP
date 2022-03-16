@@ -2,13 +2,13 @@
 #include "DUH/BLOCK.h"
 
 Block _blocks[256] = {
-        {0, 0, false, WHITE, BLACK, false},
-        {1, 219, true, WHITE, BLACK, false},
-        {2, 0, false, WHITE, BLACK, false},
-        {3, 127, false, GREEN, BLACK, true},
-        {4, 3, false, RED, BLACK, false},
-        {5, 21, false, CYAN, BLACK, false},
-        {6, 7, false, YELLOW, BLACK, false},
+        {EMPTY, 0, false, WHITE, BLACK, false},
+        {WALL, 219, true, WHITE, BLACK, false},
+        {ENTRY_POINT, 0, false, WHITE, BLACK, false},
+        {TARGET_POINT, 127, false, GREEN, BLACK, true},
+        {MED_KIT, 3, false, RED, BLACK, false},
+        {WATER_JUG, 21, false, CYAN, BLACK, false},
+        {COIN, 7, false, YELLOW, BLACK, false},
 };
 
 bool isSolid(uchar id) {
