@@ -8,7 +8,7 @@ Block _blocks[256] = {
         {TARGET_POINT, 127, false, GREEN, BLACK, true},
         {MED_KIT, 3, false, RED, BLACK, false},
         {WATER_JUG, 21, false, CYAN, BLACK, false},
-        {COIN, 7, false, YELLOW, BLACK, false},
+        {COIN, 111, false, YELLOW, BLACK, false},
 };
 
 bool isSolid(uchar id) {
