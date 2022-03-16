@@ -82,16 +82,11 @@ int main() {
         }
 	}
 
+    freeMap(&map);
+
 	clrscr();
-	printf("Bye ");
-	putch(1);
-	putch('\n');
-
-	getch();
-
-	freeMap(&map);
-
     _setcursortype(_NORMALCURSOR);
+	printf("Bye %c\n", 1);
 
 	return 0;
 }
