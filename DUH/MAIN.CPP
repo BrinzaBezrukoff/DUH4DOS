@@ -2,14 +2,17 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
+#include <dos.h>
 
 #include "DUH/TOOLS.H"
 #include "DUH/HERO.H"
 #include "DUH/MAP.H"
 #include "DUH/HUD.H"
 
-
 #define DEF_LVL "LVLS/1.DAT"
+#define FPS 30
+
+const uint frameDelay = (float) 1000 / FPS;
 
 
 int main() {
@@ -80,6 +83,7 @@ int main() {
             redrawHero(&hero);
             redrawHUD(&hero, &map);
         }
+        delay(frameDelay);
 	}
 
     freeMap(&map);
